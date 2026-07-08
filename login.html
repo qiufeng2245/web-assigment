@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login Page & Register</title>
+<meta charset="utf-8 ">
+<link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+<div class="Page">
+    <div class="LoginPage">
+        <form class="Login">
+            <p class="LoginTitle">Login to MAMAMIYA</p>
+            <label>
+                <input 
+                type="text" 
+                placeholder="UserName & Email"
+                name="UserName"
+                required
+                class="input"
+                >
+            </label>
+            
+            <br>
+
+            <label>
+                <input 
+                type="password" 
+                placeholder="Password"
+                name="password"
+                id="LoginPwd"
+                required
+                class="input"
+                >
+            </label>
+
+            <div class="showpassword">
+                <input type="checkbox" id="show">
+
+                <label for="show">Show Password</label>
+            </div>
+
+            <button class="loginbutton" type="submit">Login</button>
+            <br>
+            <hr class="line">   
+            <a href="register.html"><button class="registerbutton">Create an new account</button></a>
+            
+        </form>
+    </div>
+
+    <div class="LoginImg">
+        <img src="images/MAMAMIYA.png" alt="MAMAMIYA picture">
+    </div>
+</div>
+</body>
+
+</html>
