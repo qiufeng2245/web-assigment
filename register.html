@@ -1,10 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
+<title>Register</title>
 <meta charset="utf-8 ">
+<link rel="stylesheet" href="css/register.css">
 </head>
+
 <body>
-    
+    <div class="page">
+
+        <div class="progressline">
+            <div class="progresslight"></div>
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+        </div>
+
+        <div class="Register">
+            <form>
+                <div class="slider">
+                    <div class="inputName">
+                        <h1>Start your musical journey with MAMAMIYA.</h1>
+                        <p>Create an account to discover premium instruments, manage your orders,<br> and enjoy a seamless shopping experience.</p>
+
+                        <div class="row">
+                            <label class="labelname">
+                                <input
+                                type="text"
+                                placeholder="firstname"
+                                name="fisrtname"
+                                required
+                                >
+                            </label>
+
+                            <label class="labelname">
+                                <input
+                                type="text"
+                                placeholder="lastname"
+                                name="lastname"
+                                required
+                                >
+                            </label>
+                        </div>
+
+                        <br>
+
+                        <label class="labelname">
+                            <input
+                            type="text" 
+                            placeholder="UserName"
+                            name="username"
+                            required>
+                        </label>
+                    </div>
+
+                    <div class="inputEmail">
+                        <label>
+                            <input
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            required>
+                        </label>
+                    </div>
+                    
+                    <div class="inputPassword">
+                    <label>
+                        <input
+                        type="password"
+                        placeholder="password"
+                        name="password"
+                        required>
+                    </label>
+
+                    <label>
+                        <input
+                        type="password"
+                        placeholder="comfirm password"
+                        name="comfirmpassword"
+                        required>
+                    </label>
+                    </div>
+                </div>
+                <button type="button" class="next">Continue</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

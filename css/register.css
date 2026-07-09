@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.Register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    width:100%;
+    padding:20px;
+    overflow:hidden;
+}
+
+h1 {
+    font-size: 28px;
+    color: rgb(2, 2, 2);
+    font-weight: 600;
+    display: flex;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.progressline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.progressline::before {
+    content: '';
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: 1;
+}
+
+.progresslight {
+    background-color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: 2;
+    transition: width 0.4s ease; /*animation*/
+}
+
+.step{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color:#111827;
+    color:#111827;
+    background-color: #e1e4ec;
+    position:relative;
+    z-index: 3;
+}   
+
+.slider{
+    display:flex;
+    width:300%;
+}
+
+.inputName{
+    width:33.333%;
+}
+
+.inputEmail{
+    width:33.333%;
+}
+
+.inputPassword{
+    width:33.333%;
+}
+
+.labelname{
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+    gap: 15px;
+}
