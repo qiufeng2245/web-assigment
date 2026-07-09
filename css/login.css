@@ -7,7 +7,7 @@
 
 .LoginTitle{
     font-size: 28px;
-    color: rgb(0, 3, 12);
+    color:black;    
     font-weight: 600;
     display: flex;
     letter-spacing: -0.5px;
@@ -21,7 +21,10 @@
     margin-top: -100px;
     width: 100%;
     max-width: 600px;
-    padding: 35px 30px;
+    padding: 70px 40px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .Login label{
@@ -50,26 +53,25 @@
     background-repeat: no-repeat;
 }
 
+.Page::before{
+    content: '';
+    position:absolute;
+    inset:0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
 .showpassword{
     margin-top: 10px;
+    
 }
 
 .LoginPage{
-    flex: 1;
+    flex: 0.5;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.LoginImg{
-    flex: 1;
-    height: 100%;
-}
-
-.LoginImg img{
-    width: 100%;
-    height: 100%;
-    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .loginbutton{
@@ -112,8 +114,16 @@
     transform: scale(1.01);
 }
 
+.registerbutton:active{
+    transform: scale(0.99);
+}
+
 .loginbutton:hover{
     transform: scale(1.01);
+}
+
+.loginbutton:active{
+    transform: scale(0.99);
 }
 
 .Login label:hover{
@@ -121,5 +131,10 @@
 }
 
 .showpassword:hover{
-     transform: scale(1.005);
+    transform: scale(1.005);
+}
+
+.click{
+    cursor:pointer;
+    user-select:none;
 }
