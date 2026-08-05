@@ -1,17 +1,25 @@
-// Register page
+//REGISTER PAGE
 
 const continueButton = document.querySelector(".Continuebutton");
 
 if (continueButton) {
-    const userInputSections = document.querySelectorAll(".UserInput");
-    const progressLight = document.querySelector(".progresslight");
-    const steps = document.querySelectorAll(".step");
+    const userInputSections =
+        document.querySelectorAll(".UserInput");
+
+    const progressLight =
+        document.querySelector(".progresslight");
+
+    const steps =
+        document.querySelectorAll(".step");
 
     let currentStep = 0;
 
     continueButton.addEventListener("click", function () {
-        const currentSection = userInputSections[currentStep];
-        const currentInputs = currentSection.querySelectorAll("input");
+        const currentSection =
+            userInputSections[currentStep];
+
+        const currentInputs =
+            currentSection.querySelectorAll("input");
 
         for (const input of currentInputs) {
             if (!input.checkValidity()) {
@@ -28,29 +36,41 @@ if (continueButton) {
             }
         }
 
-        if (currentStep === userInputSections.length - 1) {
+        if (
+            currentStep ===
+            userInputSections.length - 1
+        ) {
             checkPassword();
             return;
         }
 
-        userInputSections[currentStep].classList.remove("active");
+        userInputSections[currentStep]
+            .classList.remove("active");
 
         currentStep++;
 
-        userInputSections[currentStep].classList.add("active");
+        userInputSections[currentStep]
+            .classList.add("active");
 
         updateProgress();
 
-        if (currentStep === userInputSections.length - 1) {
+        if (
+            currentStep ===
+            userInputSections.length - 1
+        ) {
             continueButton.textContent = "Register";
         }
     });
 
     function updateProgress() {
         const percentage =
-            (currentStep / (userInputSections.length - 1)) * 100;
+            (
+                currentStep /
+                (userInputSections.length - 1)
+            ) * 100;
 
-        progressLight.style.width = percentage + "%";
+        progressLight.style.width =
+            percentage + "%";
 
         steps.forEach(function (step, index) {
             if (index <= currentStep) {
@@ -60,17 +80,23 @@ if (continueButton) {
             }
         });
     }
-//check email
-    function checkEmail() {
-        const emailInput = document.querySelector(
-            'input[name="email"]'
-        );
 
-        const email = emailInput.value.trim();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.com$/;
+    function checkEmail() {
+        const emailInput =
+            document.querySelector(
+                'input[name="email"]'
+            );
+
+        const email =
+            emailInput.value.trim();
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.com$/;
 
         if (!emailPattern.test(email)) {
-            alert("Please enter a valid email ending with .com.");
+            alert(
+                "Please enter a valid email ending with .com."
+            );
 
             emailInput.focus();
 
@@ -81,16 +107,41 @@ if (continueButton) {
     }
 
     function checkPassword() {
-        const passwordInput = document.querySelector(
-            'input[name="password"]'
-        );
+        const passwordInput =
+            document.querySelector(
+                'input[name="password"]'
+            );
 
-        const confirmPasswordInput = document.querySelector(
-            'input[name="comfirmpassword"]'
-        );
+        const confirmPasswordInput =
+            document.querySelector(
+                'input[name="comfirmpassword"]'
+            );
 
-        const password = passwordInput.value;
-        const confirmPassword = confirmPasswordInput.value;
+        const usernameInput =
+            document.querySelector(
+                'input[name="username"]'
+            );
+
+        const emailInput =
+            document.querySelector(
+                'input[name="email"]'
+            );
+
+        const firstNameInput =
+            document.querySelector(
+                'input[name="fisrtname"]'
+            );
+
+        const lastNameInput =
+            document.querySelector(
+                'input[name="lastname"]'
+            );
+
+        const password =
+            passwordInput.value;
+
+        const confirmPassword =
+            confirmPasswordInput.value;
 
         const passwordPattern =
             /^(?=.*[A-Za-z])(?=.*[0-9])\S{8,}$/;
@@ -113,6 +164,19 @@ if (continueButton) {
             return false;
         }
 
+        const account = {
+            firstName: firstNameInput.value.trim(),
+            lastName: lastNameInput.value.trim(),
+            username: usernameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: password
+        };
+
+        localStorage.setItem(
+            "mamamiyaAccount",
+            JSON.stringify(account)
+        );
+
         alert("Registration successful!");
 
         window.location.href = "login.html";
@@ -121,55 +185,171 @@ if (continueButton) {
     }
 
     const togglePasswordButtons =
-        document.querySelectorAll(".togglePassword");
+        document.querySelectorAll(
+            ".togglePassword"
+        );
 
-    togglePasswordButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            const targetId = button.getAttribute("data-target");
-            const passwordInput = document.getElementById(targetId);
+    togglePasswordButtons.forEach(
+        function (button) {
+            button.addEventListener(
+                "click",
+                function () {
+                    const targetId =
+                        button.getAttribute(
+                            "data-target"
+                        );
 
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                button.textContent = "Hide";
-                button.classList.add("activeToggle");
-                button.setAttribute("aria-label", "Hide password");
-            } else {
-                passwordInput.type = "password";
-                button.textContent = "Show";
-                button.classList.remove("activeToggle");
-                button.setAttribute("aria-label", "Show password");
-            }
-        });
-    });
+                    const passwordInput =
+                        document.getElementById(
+                            targetId
+                        );
+
+                    if (
+                        passwordInput.type ===
+                        "password"
+                    ) {
+                        passwordInput.type = "text";
+
+                        button.textContent = "Hide";
+
+                        button.classList.add(
+                            "activeToggle"
+                        );
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Hide password"
+                        );
+                    } else {
+                        passwordInput.type =
+                            "password";
+
+                        button.textContent = "Show";
+
+                        button.classList.remove(
+                            "activeToggle"
+                        );
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Show password"
+                        );
+                    }
+                }
+            );
+        }
+    );
 
     updateProgress();
 }
 
-//login
-const showCheckbox = document.querySelector("#show");
-const loginPassword = document.querySelector("#LoginPwd");
+//LOGIN PAGE SHOW PASSWORD
+
+const showCheckbox =
+    document.querySelector("#show");
+
+const loginPassword =
+    document.querySelector("#LoginPwd");
 
 if (showCheckbox && loginPassword) {
-    showCheckbox.addEventListener("change", function () {
-        if (this.checked) {
-            loginPassword.type = "text";
-        } else {
-            loginPassword.type = "password";
+    showCheckbox.addEventListener(
+        "change",
+        function () {
+            if (this.checked) {
+                loginPassword.type = "text";
+            } else {
+                loginPassword.type = "password";
+            }
         }
-    });
+    );
 }
 
-const loginForm = document.querySelector(".Login");
+// LOGIN PAGE CHECK ACCOUNT
+
+const loginForm =
+    document.querySelector(".Login");
 
 if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
 
-        if (!loginForm.checkValidity()) {
-            loginForm.reportValidity();
-            return;
+            event.preventDefault();
+
+            if (!loginForm.checkValidity()) {
+                loginForm.reportValidity();
+                return;
+            }
+
+            const usernameInput =
+                document.querySelector(
+                    'input[name="UserName"]'
+                );
+
+            const passwordInput =
+                document.querySelector(
+                    "#LoginPwd"
+                );
+
+            const enteredUsername =
+                usernameInput.value.trim();
+
+            const enteredPassword =
+                passwordInput.value;
+
+            const savedAccountText =
+                localStorage.getItem(
+                    "mamamiyaAccount"
+                );
+
+            if (!savedAccountText) {
+                alert(
+                    "No account found. Please register first."
+                );
+
+                return;
+            }
+
+            const savedAccount =
+                JSON.parse(savedAccountText);
+
+            const usernameMatches =
+                enteredUsername ===
+                savedAccount.username;
+
+            const emailMatches =
+                enteredUsername ===
+                savedAccount.email;
+
+            const passwordMatches =
+                enteredPassword ===
+                savedAccount.password;
+
+            if (
+                (usernameMatches || emailMatches) &&
+                passwordMatches
+            ) {
+
+                sessionStorage.setItem(
+                    "loggedInUser",
+                    savedAccount.username
+                );
+
+                sessionStorage.setItem(
+                    "loggedInFirstName",
+                    savedAccount.firstName
+                );
+
+                window.location.href =
+                    "home.html";
+            } else {
+                alert(
+                    "Incorrect username, email or password."
+                );
+
+                passwordInput.value = "";
+                passwordInput.focus();
+            }
         }
-
-        window.location.href = "HomePage.html";
-    });
+    );
 }
