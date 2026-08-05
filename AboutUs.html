@@ -3,478 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>About Us | MamaMiya Music Store</title>
+    <link rel ="stylesheet" href="css/aboutus.css">  
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --background: #f3f0e9;
-            --surface: #e8e2d7;
-            --text: #171717;
-            --muted: #69655f;
-            --accent: #8b4d32;
-            --line: rgba(23, 23, 23, 0.18);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--background);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-        }
-
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .page-width {
-            width: min(1180px, 88%);
-            margin: 0 auto;
-        }
-
-        /* Navbar */
-        .navbar {
-            min-height: 130px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .logo {
-            justify-self: start;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.55rem;
-            font-weight: bold;
-            letter-spacing: -1px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 42px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding: 8px 0;
-            font-size: 0.82rem;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 1px;
-            background: var(--text);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links .active::after {
-            width: 100%;
-        }
-
-        .nav-action {
-            justify-self: end;
-            border: 1px solid var(--text);
-            padding: 11px 19px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: 0.3s ease;
-        }
-
-        .nav-action:hover {
-            background: var(--text);
-            color: var(--background);
-        }
-
-        /* Hero */
-        .about-hero {
-            min-height: 610px;
-            display: grid;
-            grid-template-columns: 0.92fr 1.08fr;
-            align-items: center;
-            gap: 8%;
-            padding-top: 75px;
-            padding-bottom: 95px;
-        }
-
-        .eyebrow {
-            margin-bottom: 24px;
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: bold;
-            letter-spacing: 2.4px;
-            text-transform: uppercase;
-        }
-
-        .about-hero h1 {
-            max-width: 650px;
-            margin-bottom: 28px;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(3.5rem, 7vw, 6.8rem);
-            font-weight: normal;
-            line-height: 0.91;
-            letter-spacing: -4px;
-        }
-
-        .about-hero h1 em {
-            color: var(--accent);
-            font-weight: normal;
-        }
-
-        .hero-description {
-            max-width: 480px;
-            color: var(--muted);
-            font-size: 1rem;
-        }
-
-        .hero-image-wrap {
-            position: relative;
-            height: 560px;
-        }
-
-        .hero-image-wrap::before {
-            content: "Since 2016";
-            position: absolute;
-            z-index: 2;
-            right: -25px;
-            bottom: 35px;
-            width: 105px;
-            height: 105px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #fff;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        /* Story */
-        .story-section {
-            background: var(--text);
-            color: var(--background);
-            padding: 115px 0;
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: 0.75fr 1.25fr;
-            gap: 11%;
-        }
-
-        .section-number {
-            display: block;
-            margin-bottom: 28px;
-            color: #b9b2a7;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-        }
-
-        .story-section h2,
-        .values-section h2,
-        .cta-section h2 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(2.7rem, 5vw, 5rem);
-            font-weight: normal;
-            line-height: 1;
-            letter-spacing: -2px;
-        }
-
-        .story-copy {
-            max-width: 650px;
-        }
-
-        .story-copy .lead {
-            margin-bottom: 30px;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(1.55rem, 2.4vw, 2.3rem);
-            line-height: 1.35;
-        }
-
-        .story-copy p:not(.lead) {
-            color: #b9b2a7;
-            font-size: 0.98rem;
-        }
-
-        /* Values */
-        .values-section {
-            padding: 120px 0;
-        }
-
-        .values-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 40px;
-            margin-bottom: 70px;
-        }
-
-        .values-heading p {
-            max-width: 390px;
-            color: var(--muted);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid var(--line);
-        }
-
-        .value-card {
-            min-height: 280px;
-            padding: 38px 32px;
-            border-right: 1px solid var(--line);
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .value-card:first-child {
-            border-left: 1px solid var(--line);
-        }
-
-        .value-card:hover {
-            background: var(--surface);
-            transform: translateY(-7px);
-        }
-
-        .value-card span {
-            color: var(--accent);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-        }
-
-        .value-card h3 {
-            margin: 62px 0 16px;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 1.8rem;
-            font-weight: normal;
-        }
-
-        .value-card p {
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-
-        /* Statistics */
-        .stats-section {
-            background: var(--surface);
-            padding: 80px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .stat {
-            padding: 22px 35px;
-            border-left: 1px solid var(--line);
-        }
-
-        .stat:last-child {
-            border-right: 1px solid var(--line);
-        }
-
-        .stat strong {
-            display: block;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(2.2rem, 4vw, 4rem);
-            font-weight: normal;
-            line-height: 1;
-        }
-
-        .stat span {
-            display: block;
-            margin-top: 13px;
-            color: var(--muted);
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        /* CTA */
-        .cta-section {
-            padding: 125px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            max-width: 760px;
-            margin: 0 auto 38px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 27px;
-            border: 1px solid var(--text);
-            font-size: 0.76rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--text);
-            color: var(--background);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--line);
-            padding: 35px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            color: var(--muted);
-            font-size: 0.78rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .navbar {
-                grid-template-columns: 1fr auto;
-            }
-
-            .nav-links {
-                grid-column: 1 / -1;
-                grid-row: 2;
-                justify-content: center;
-                gap: 25px;
-                padding-bottom: 25px;
-            }
-
-            .about-hero,
-            .story-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-hero {
-                gap: 55px;
-            }
-
-            .hero-image-wrap {
-                height: 470px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .value-card,
-            .value-card:first-child {
-                border-right: 1px solid var(--line);
-                border-bottom: 1px solid var(--line);
-                border-left: 1px solid var(--line);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                row-gap: 45px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .page-width {
-                width: 90%;
-            }
-
-            .navbar {
-                min-height: 105px;
-            }
-
-            .nav-action {
-                padding: 9px 12px;
-            }
-
-            .nav-links {
-                justify-content: flex-start;
-                gap: 16px;
-                overflow-x: auto;
-            }
-
-            .nav-links a {
-                white-space: nowrap;
-                font-size: 0.7rem;
-            }
-
-            .about-hero h1 {
-                letter-spacing: -2px;
-            }
-
-            .hero-image-wrap {
-                height: 390px;
-            }
-
-            .hero-image-wrap::before {
-                right: -8px;
-                width: 85px;
-                height: 85px;
-            }
-
-            .values-heading {
-                display: block;
-            }
-
-            .values-heading p {
-                margin-top: 25px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat {
-                padding: 15px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <header class="page-width">
-        <nav class="navbar" aria-label="Main navigation">
-            <a class="logo" href="HomePage.html">MamaMiya.</a>
+    <header class="header">
+        <div class="logo">MamaMiya</div>
 
-            <ul class="nav-links">
-                <li><a href="HomePage.html">Home</a></li>
-                <li><a href="HomePage.html#collection">Instruments</a></li>
-                <li><a href="AboutUs.html" class="active">About Us</a></li>
-                <li><a href="HomePage.html#contact">Contact</a></li>
-            </ul>
-
-            <a class="nav-action" href="register.html">Get Started</a>
+        <nav class = "nav">
+        <a href="HomePage.html" class="step-1">&bull;Home</a>
+        <a href="product.html" class="step-2">&bull;Shop Instruments</a>
+        <a href="AboutUs.html" class="step-3">&bull;About Us</a>
+        <a href="#" class="step-4">&bull;Contact Us (&rarr;)</a>
+        <a href="register.html" class="step-5">&bull;Register</a>
         </nav>
     </header>
 
@@ -491,8 +33,8 @@
             </div>
 
             <div class="hero-image-wrap">
-                <!-- Change this path to your own About Us image -->
-                <img src="imgs/about-music-store.jpg"
+    
+                <img src="imgs/aboutus1.jpg"
                      alt="Musician playing an instrument inside MamaMiya Music Store">
             </div>
         </section>
@@ -589,11 +131,42 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content page-width">
-            <p>&copy; 2026 MamaMiya Music Store. All rights reserved.</p>
-            <p>Made for musicians, by music lovers.</p>
+
+<footer class="footer">
+
+    <div class="footer-brand">
+            <span class="brand-letter brand-left">M</span>
+            <span class="brand-letter brand-center">M</span>
+            <span class="brand-letter brand-right">M</span>
+    </div>
+
+    <div class="footer-contact">
+            <p>Music Store</p>
+
+            <a href ="meilto:admin@mamamiya.com">admin@mamamiya.com →</a>
+    </div>
+
+    <nav class="footer-nav">
+        <a href="HomePage.html" class="footer-step-1">&bull;Home</a>
+        <a href="product.html" class="footer-step-2">&bull;Shop Instruments</a>
+        <a href="AboutUs.html" class="footer-step-3">&bull;About Us</a>
+        <a href="#" class="footer-step-4">&bull;Contact Us(&rarr;)</a>
+        <a href="register.html" class="footer-step-5">&bull;Register</a>
+    </nav>
+
+        <div class="footer-social">
+            <a href ="https://instagram.com/mamamiya_music" target="_blank">Instagram.</a>
+            <a href ="https://threads.net/@mamamiya_music" target="_blank">Threads.</a>
+            <a href ="https://facebook.com/MamaMiya_Music" target="_blank">Facebook.</a>
         </div>
-    </footer>
+    
+        <div class = "footer-bottom">
+            <p>&copy; 2026 MamaMiya Music. All rights reserved.</p>
+        </div>
+
+        <p class="footer-credit">
+            Designed for music lovers.
+        </p>
+</footer>
 </body>
 </html>
