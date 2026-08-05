@@ -14,7 +14,7 @@
         <a href="HomePage.html" class="step-1">&bull;Home</a>
         <a href="product.html" class="step-2">&bull;Shop Instruments</a>
         <a href="AboutUs.html" class="step-3">&bull;About Us</a>
-        <a href="#" class="step-4">&bull;Contact Us (&rarr;)</a>
+        <a href="login.html" class="step-4">&bull;Log In (&rarr;)</a>
         <a href="register.html" class="step-5">&bull;Register</a>
         </nav>
     </header>
@@ -86,52 +86,66 @@
                 Crafted<br> For Every <br> Musician.
             </h2>
         </div>
-
+        
         <div class="collection-content">
-            <div class="collection-list">
-                <a href="product.html" class="collection-item" data-image="imgs/piano1.jpg">
+
+            <div class="collection-list ">
+                <a href="product.html" class="collection-item item-1" 
+                data-image="imgs/piano1.jpg"
+                data-alt="Grand Piano">
+
                 <span class="number">01</span>
-                <div>
+
+                <div class="collection-info">
                     <h3>Grand Piano</h3>
                     <p>Professional Series</p>
                 </div>
+
                 <span class="arrow">&rarr;</span>
                 </a>
-            </div>
-
-        <div class="preview">
-        <img 
-            id="previewImg" src="" alt=""
-        >
-        </div>
-
-            <a href="product.html" class="collection-item">
-                <span class="number">02</span>
-                <div>
-                    <h3>Electric Guitar </h3>
+            
+                <a href="product.html" class="collection-item item-2"
+                    data-image="imgs/guitar1.jpg"
+                    data-alt="Guitar">
+                    <span class="number">02</span>
+                    
+                    <div class="collection-info">
+                    <h3>Acoustic Guitar </h3>
                     <p> Classic Collection</p>
-                </div>
-                <span class="arrow">&rarr;</span>
-            </a>
+                    </div>
 
-            <a href="product.html" class="collection-item">
-                <span class="number">03</span>
-                <div>
-                    <h3> Violin</h3>
+                    <span class="arrow">&rarr;</span>
+                </a>
+
+                <a href="product.html" 
+                    class="collection-item item-3"
+                    data-image="imgs/violin1.jpg"
+                    data-alt="Violin">
+
+                    <span class="number">03</span>
+                    <div class="collection-info">
+                    <h3> Classic Violin</h3>
                     <p>Handcrafted Edition</p>
-                </div>
-                <span class="arrow">&rarr;</span>
-            </a>
+                    </div>
+                    <span class="arrow">&rarr;</span>
+                </a>
 
-            <a href="product.html" class="collection-item">
-                <span class="number">04</span>
-                <div>
-                    <h3> Drum Set</h3>
+                <a href="product.html" class="collection-item item-4"
+                    data-image="imgs/drum1.jpg"
+                    data-alt="Drum">
+                    <span class="number">04</span>
+                    <div class="collection-info">
+                    <h3> Drum Kit</h3>
                     <p>Performance Series </p>
-                </div>
-                <span class="arrow">&rarr;</span>
-            </a>
-        </div>
+                    </div>
+                    <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+            
+            <div class="preview">
+                <img id="previewImg" src="" alt="">
+            </div>
+            
         </div>
     </section>
 
@@ -147,17 +161,26 @@
             <span class="brand-letter brand-right">M</span>
     </div>
 
+   
     <div class="footer-contact">
             <p>Music Store</p>
 
-            <a href ="meilto:admin@mamamiya.com">admin@mamamiya.com →</a>
+            <div class="footer-email">
+
+                <span id="emailText">
+                Contact Us
+                </span>
+                <span class="arrow">→</span>
+
+            </div>
+            <p id="copyMessage"></p>
     </div>
 
     <nav class="footer-nav">
         <a href="HomePage.html" class="footer-step-1">&bull;Home</a>
         <a href="product.html" class="footer-step-2">&bull;Shop Instruments</a>
         <a href="AboutUs.html" class="footer-step-3">&bull;About Us</a>
-        <a href="#" class="footer-step-4">&bull;Contact Us(&rarr;)</a>
+        <a href="login.html" class="step-4">&bull;Log In (&rarr;)</a>
         <a href="register.html" class="footer-step-5">&bull;Register</a>
     </nav>
 
