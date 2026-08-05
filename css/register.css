@@ -15,6 +15,8 @@ body{
 
 .page{
     margin-bottom: 200px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .Register {
@@ -25,6 +27,10 @@ body{
     width:100%;
     padding:20px;
     overflow:hidden;
+}
+
+.Register form{
+    width: 100%;
 }
 
 h1 {
@@ -83,44 +89,10 @@ h1 {
     z-index: 3;
 }   
 
-.slider{
-    display:flex;
-    width:300%;
-    transition: transform 0.7s ease;
-}
-
-.inputName{
-    width:33.333%;
-}
-
-.inputEmail{
-    width:33.333%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.inputPassword{
-    width:33.333%;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    gap:15px;
-}
-
 .labelname{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.row{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    gap: 15px;
 }
 
 .headername{
@@ -187,4 +159,92 @@ h1 {
 
 .Continuebutton:active{
     transform: scale(0.95);
+}
+
+.UserInput{
+    display:none;
+}
+
+.UserInput.active{
+    display:flex;
+}
+
+.inputName.active{
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputEmail.active{
+    width: 100%;
+    flex-direction: column;
+}
+
+.inputEmail label{
+    width: 100%;
+}
+
+.inputPassword.active{
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputPassword label{
+    width: 100%;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.row label{
+    width: 50%;
+}
+
+.passwordBox {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.passwordBox .password {
+    padding-right: 85px;
+}
+
+.togglePassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.togglePassword:hover {
+    color: #111827;
+}
+
+.togglePassword:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+.togglePassword.activeToggle {
+    background: transparent;
+    color: #111827;
+}
+
+.password::-ms-reveal,
+.password::-ms-clear {
+    display: none;
 }

@@ -138,3 +138,7 @@
     cursor:pointer;
     user-select:none;
 }
+
+#LoginPwd::-ms-reveal {
+    display: none;
+}
