@@ -291,6 +291,95 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
+        /* Team */
+        .team-section {
+            padding: 120px 0;
+        }
+
+        .team-heading {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: end;
+            gap: 60px;
+            margin-bottom: 65px;
+        }
+
+        .team-heading p {
+            max-width: 430px;
+            color: var(--muted);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+        .team-card {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 26px;
+            min-height: 315px;
+            padding: 36px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            transition: background 0.3s ease;
+        }
+
+        .team-card:hover {
+            background: var(--surface);
+        }
+
+        .member-number {
+            width: 72px;
+            height: 72px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            color: var(--accent);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+        }
+
+        .member-role {
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .team-card h3 {
+            margin: 8px 0 17px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+            font-weight: normal;
+            line-height: 1.1;
+        }
+
+        .member-contribution {
+            margin-bottom: 27px;
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--text);
+            font-size: 0.72rem;
+            font-weight: bold;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .portfolio-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
 
         /* CTA */
         .cta-section {
