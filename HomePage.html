@@ -11,11 +11,22 @@
         <div class="logo">MamaMiya</div>
 
         <nav class = "nav">
-        <a href="HomePage.html" class="step-1">&bull;Home</a>
-        <a href="product.html" class="step-2">&bull;Shop Instruments</a>
-        <a href="AboutUs.html" class="step-3">&bull;About Us</a>
-        <a href="#" class="step-4">&bull;Contact Us (&rarr;)</a>
-        <a href="register.html" class="step-5">&bull;Register</a>
+            <a href="HomePage.html" class="step-1">&bull;Home</a>
+            <a href="product.html" class="step-2">&bull;Shop Instruments</a>
+            <a href="AboutUs.html" class="step-3">&bull;About Us</a>
+            <a href="#" class="step-4">&bull;Contact Us (&rarr;)</a>
+            <a href="login.html" class="step-5" id="loginLink">&bull;Login</a>
+            <a href="register.html" class="step-6" id="registerLink">&bull;Register</a>
+
+            <div id="userMenu" hidden>
+                <span class="welcomeText">
+                    Welcome, <strong id="welcomeUsername"></strong>
+                </span>
+
+                <button type="button" id="logoutButton">
+                    &bull;Logout
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -177,7 +188,13 @@
         </p>
 </footer>
 
-    <button id = "theme-btn">🌓</button>
+    <button
+        type="button"
+        id="theme-btn"
+        aria-label="Switch to dark mode"
+    >
+        🌙
+    </button>
 
 <script src="js/script.js"></script>
 </body>

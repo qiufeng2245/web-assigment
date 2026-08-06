@@ -73,10 +73,15 @@ if (continueButton) {
             percentage + "%";
 
         steps.forEach(function (step, index) {
-            if (index <= currentStep) {
+            step.classList.remove(
+                "completed",
+                "current"
+            );
+
+            if (index < currentStep) {
                 step.classList.add("completed");
-            } else {
-                step.classList.remove("completed");
+            } else if (index === currentStep) {
+                step.classList.add("current");
             }
         });
     }
@@ -87,17 +92,12 @@ if (continueButton) {
                 'input[name="email"]'
             );
 
-        const email =
-            emailInput.value.trim();
+        const email = emailInput.value.trim();
 
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.com$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(email)) {
-            alert(
-                "Please enter a valid email ending with .com."
-            );
-
+            alert("Please enter a valid email address.");
             emailInput.focus();
 
             return false;
@@ -114,7 +114,7 @@ if (continueButton) {
 
         const confirmPasswordInput =
             document.querySelector(
-                'input[name="comfirmpassword"]'
+                'input[name="confirmpassword"]'
             );
 
         const usernameInput =
@@ -129,7 +129,7 @@ if (continueButton) {
 
         const firstNameInput =
             document.querySelector(
-                'input[name="fisrtname"]'
+                'input[name="firstname"]'
             );
 
         const lastNameInput =
@@ -341,7 +341,7 @@ if (loginForm) {
                 );
 
                 window.location.href =
-                    "home.html";
+                    "HomePage.html";
             } else {
                 alert(
                     "Incorrect username, email or password."
@@ -349,6 +349,76 @@ if (loginForm) {
 
                 passwordInput.value = "";
                 passwordInput.focus();
+            }
+        }
+    );
+}
+
+// LOGIN AND REGISTER THEME TOGGLE
+
+const accountThemeButton =
+    document.querySelector("#theme-btn");
+
+const accountSavedTheme =
+    localStorage.getItem("mamamiyaTheme");
+
+function applyAccountTheme(theme) {
+    if (theme === "dark") {
+        document.body.classList.add("dark-theme");
+
+        if (accountThemeButton) {
+            accountThemeButton.textContent = "☀️";
+
+            accountThemeButton.setAttribute(
+                "aria-label",
+                "Switch to light mode"
+            );
+        }
+    } else {
+        document.body.classList.remove("dark-theme");
+
+        if (accountThemeButton) {
+            accountThemeButton.textContent = "🌙";
+
+            accountThemeButton.setAttribute(
+                "aria-label",
+                "Switch to dark mode"
+            );
+        }
+    }
+}
+
+// 页面打开时使用已保存的主题
+if (accountSavedTheme === "dark") {
+    applyAccountTheme("dark");
+} else {
+    applyAccountTheme("light");
+}
+
+// 点击按钮切换主题
+if (accountThemeButton) {
+    accountThemeButton.addEventListener(
+        "click",
+        function () {
+            const isDark =
+                document.body.classList.contains(
+                    "dark-theme"
+                );
+
+            if (isDark) {
+                applyAccountTheme("light");
+
+                localStorage.setItem(
+                    "mamamiyaTheme",
+                    "light"
+                );
+            } else {
+                applyAccountTheme("dark");
+
+                localStorage.setItem(
+                    "mamamiyaTheme",
+                    "dark"
+                );
             }
         }
     );

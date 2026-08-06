@@ -142,3 +142,106 @@
 #LoginPwd::-ms-reveal {
     display: none;
 }
+
+/*LOGIN THEME BUTTON*/
+
+#theme-btn {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111827;
+    border: 1px solid rgba(211, 160, 82, 0.6);
+    font-size: 19px;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease;
+}
+
+#theme-btn:hover {
+    transform: translateY(-2px);
+}
+
+/*LOGIN DARK THEME*/
+
+.Login,
+.LoginTitle,
+.input,
+.loginbutton,
+.registerbutton,
+.showpassword,
+.line {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+body.dark-theme .Login {
+    background-color: rgba(20, 23, 29, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f5f5f5;
+}
+
+body.dark-theme .LoginTitle {
+    color: #f5f5f5;
+}
+
+body.dark-theme .input {
+    background-color: #252a34;
+    color: #f5f5f5;
+    border-color: #414957;
+}
+
+body.dark-theme .input::placeholder {
+    color: #aeb4bf;
+}
+
+body.dark-theme .input:focus {
+    border-color: #d3a052;
+    box-shadow:
+        0 0 0 4px rgba(211, 160, 82, 0.16);
+}
+
+body.dark-theme .showpassword {
+    color: #f5f5f5;
+}
+
+body.dark-theme .loginbutton {
+    background-color: #d3a052;
+    color: #111827;
+}
+
+body.dark-theme .loginbutton:hover {
+    background-color: #dfb267;
+}
+
+body.dark-theme .registerbutton {
+    background-color: transparent;
+    color: #f5f5f5;
+    border-color: #d3a052;
+}
+
+body.dark-theme .registerbutton:hover {
+    background-color: rgba(211, 160, 82, 0.12);
+}
+
+body.dark-theme .line {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+body.dark-theme #theme-btn {
+    background-color: #d3a052;
+    color: #111827;
+}

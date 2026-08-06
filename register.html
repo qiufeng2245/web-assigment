@@ -20,16 +20,17 @@
             <form>
                 <div class="inputName UserInput active">
                     <h1>Start your musical journey with MAMAMIYA.</h1>
-                    <p>Create an account to discover premium instruments, manage your orders,<br> and enjoy a seamless shopping experience.</p>
+                    <p>Create a account to discover premium instruments, manage your orders,<br> and enjoy a seamless shopping experience.</p>
                     <h2 class="headername">Name</h2>
 
                     <div class="row">
                         <label>
                             <input
                             type="text"
-                            placeholder="Fisrt name"
-                            name="fisrtname"
+                            placeholder="First name"
+                            name="firstname"
                             class="fullname"
+                            aria-label="First name"
                             required
                             >
                         </label>
@@ -40,6 +41,7 @@
                             placeholder="Last name"
                             name="lastname"
                             class="fullname"
+                            aria-label="Last name"
                             required
                             >
                         </label>
@@ -53,6 +55,7 @@
                         placeholder="Username"
                         name="username"
                         class="surname"
+                        aria-label="Username"
                         required>
                     </label>
                     
@@ -74,6 +77,7 @@
                         placeholder="Email"
                         name="email"
                         class="email"
+                        aria-label="Email address"
                         required>
                     </label>
                 </div>
@@ -96,6 +100,7 @@
                             name="password"
                             id="registerPassword"
                             class="password"
+                            aria-label="Password"
                             required
                         >
 
@@ -113,16 +118,17 @@
                         <input
                             type="password"
                             placeholder="Confirm password"
-                            name="comfirmpassword"
+                            name="confirmpassword"
                             id="registerConfirmPassword"
                             class="password"
+                            aria-label="Confirm password"
                             required
                         >
 
                        <button
                             type="button"
                             class="togglePassword"
-                            data-target="registerPassword"
+                            data-target="registerConfirmPassword"
                             aria-label="Show password"
                         >
                             Show
@@ -136,6 +142,14 @@
             </form>
         </div>
     </div>
+    <button
+        type="button"
+        id="theme-btn"
+        aria-label="Switch to dark mode"
+    >
+        🌙
+    </button>
+    
     <script src="js/login-register.js"></script>
 </body>
 </html>
