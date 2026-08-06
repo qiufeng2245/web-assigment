@@ -561,7 +561,6 @@ body {
     z-index: 2;
     top: 240px;
     right: 55px;
-
     text-align: right;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 17px;
@@ -582,14 +581,26 @@ body {
 .footer-contact a:hover {
     opacity: 0.5;
 }
+.footer-email {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid currentColor;
+}
 
+#copyMessage {
+    min-height: 1.2em;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
 .footer-nav {
     position: absolute;
     z-index: 2;
     top: 460px;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
