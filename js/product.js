@@ -90,3 +90,74 @@ function addToCart() {
 }
 
 renderProducts(products);
+
+// PRODUCT PAGE THEME TOGGLE
+const productThemeButton =
+  document.querySelector("#theme-btn");
+
+const productSavedTheme =
+  localStorage.getItem("mamamiyaTheme");
+
+function applyProductTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
+
+    if (productThemeButton) {
+      productThemeButton.textContent = "☀️";
+
+      productThemeButton.setAttribute(
+        "aria-label",
+        "Switch to light mode"
+      );
+    }
+  } else {
+    document.body.classList.remove("dark-theme");
+
+    if (productThemeButton) {
+      productThemeButton.textContent = "🌙";
+
+      productThemeButton.setAttribute(
+        "aria-label",
+        "Switch to dark mode"
+      );
+    }
+  }
+}
+
+
+// Page loads saved theme
+if (productSavedTheme === "dark") {
+  applyProductTheme("dark");
+} else {
+  applyProductTheme("light");
+}
+
+
+// Switch theme
+if (productThemeButton) {
+  productThemeButton.addEventListener(
+    "click",
+    function () {
+      const isDark =
+        document.body.classList.contains(
+          "dark-theme"
+        );
+
+      if (isDark) {
+        applyProductTheme("light");
+
+        localStorage.setItem(
+          "mamamiyaTheme",
+          "light"
+        );
+      } else {
+        applyProductTheme("dark");
+
+        localStorage.setItem(
+          "mamamiyaTheme",
+          "dark"
+        );
+      }
+    }
+  );
+}

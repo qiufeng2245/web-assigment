@@ -17,7 +17,6 @@ collectionItems.forEach(item => {
 document.querySelector(".collection-content").addEventListener("mouseleave", () => {
     previewImg.classList.remove("show");
 });
-<<<<<<< HEAD
 
 //HOME PAGE LOGIN STATUS
 
@@ -114,32 +113,3 @@ if (themeButton) {
         }
     });
 }
-=======
-const emailBox = document.querySelector(".footer-email");
-const emailText = document.getElementById("emailText");
-const copyMessage = document.getElementById("copyMessage");
-const email = "admin@mamamiya.com";
-
-emailBox.addEventListener("mouseenter", () => {
-
-    emailText.textContent = email;
-
-});
-
-emailBox.addEventListener("mouseleave", () => {
-
-    emailText.textContent = "Contact Us";
-
-});
-
-emailBox.addEventListener("click", () => {
-    navigator.clipboard.writeText(email);
-    copyMessage.textContent = "✓ Email copied!";
-    setTimeout(() => {
-
-        copyMessage.textContent = "";
-
-    },2000);
-
-});
->>>>>>> 7679193d645b6970cd3156796227cb2ce727ba63

@@ -430,3 +430,153 @@ select, input[type="range"] {
   .container { grid-template-columns: 1fr; padding: 2rem; }
   .modal-content { grid-template-columns: 1fr; }
 }
+
+/* PRODUCT THEME BUTTON */
+#theme-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(211, 160, 82, 0.6);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #111827;
+  font-size: 19px;
+  cursor: pointer;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+#theme-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* PRODUCT DARK THEME VARIABLES */
+body.dark-theme {
+  --bg: #0d1015;
+  --surface: #191d25;
+  --text-main: #f5f7fa;
+  --text-muted: #aeb6c3;
+  --border-color: #303642;
+  --accent: #d3a052;
+
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+
+/* Smooth theme transition */
+body,
+header,
+.modal-content,
+.image-wrapper,
+.footer,
+select,
+.btn-action,
+.brand-tag {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Header */
+body.dark-theme header {
+  background-color: var(--bg);
+  border-color: var(--border-color);
+}
+
+
+/* Filter and sort controls */
+body.dark-theme select,
+body.dark-theme input[type="range"] {
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+body.dark-theme select option {
+  background-color: #191d25;
+  color: #f5f7fa;
+}
+
+body.dark-theme input[type="range"] {
+  accent-color: var(--accent);
+}
+
+
+/* Product images */
+body.dark-theme .image-wrapper {
+  background-color: #232833;
+}
+
+body.dark-theme .brand-tag {
+  background-color: rgba(211, 160, 82, 0.92);
+  color: #111827;
+}
+
+
+/* Modal */
+body.dark-theme .modal {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+body.dark-theme .modal-content {
+  background-color: var(--surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+body.dark-theme .modal-close {
+  color: var(--text-muted);
+}
+
+body.dark-theme .reviews-list {
+  border-color: var(--border-color);
+}
+
+
+/* Add to Bag button */
+body.dark-theme .btn-action {
+  background-color: var(--accent);
+  color: #111827;
+}
+
+body.dark-theme .btn-action:hover {
+  opacity: 1;
+  background-color: #dfb267;
+}
+
+
+/* Footer */
+body.dark-theme .footer {
+  background-color: #151920;
+  color: #f5f7fa;
+}
+
+body.dark-theme .footer-nav a,
+body.dark-theme .footer-contact a,
+body.dark-theme .footer-social a {
+  color: #f5f7fa;
+}
+
+
+/* Theme button in dark mode */
+body.dark-theme #theme-btn {
+  background-color: #d3a052;
+  border-color: #d3a052;
+  color: #111827;
+}
