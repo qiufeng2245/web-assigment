@@ -58,58 +58,28 @@ if (logoutButton) {
 const themeButton =
     document.querySelector("#theme-btn");
 
-const savedTheme =
-    localStorage.getItem("mamamiyaTheme");
+const faqItems = document.querySelectorAll(".faq-item");
 
-function applyTheme(theme) {
-    if (theme === "dark") {
-        document.body.classList.add("dark-theme");
+faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question");
+    const icon = item.querySelector(".faq-icon");
 
-        themeButton.textContent = "☀️";
+    question.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
 
-        themeButton.setAttribute(
-            "aria-label",
-            "Switch to light mode"
-        );
-    } else {
-        document.body.classList.remove("dark-theme");
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove("active");
 
-        themeButton.textContent = "🌙";
+            const otherIcon = otherItem.querySelector(".faq-icon");
 
-        themeButton.setAttribute(
-            "aria-label",
-            "Switch to dark mode"
-        );
-    }
-}
+            if (otherIcon) {
+                otherIcon.textContent = "+";
+            }
+        });
 
-if (savedTheme === "dark") {
-    applyTheme("dark");
-} else {
-    applyTheme("light");
-}
-
-if (themeButton) {
-    themeButton.addEventListener("click", function () {
-        const isDark =
-            document.body.classList.contains(
-                "dark-theme"
-            );
-
-        if (isDark) {
-            applyTheme("light");
-
-            localStorage.setItem(
-                "mamamiyaTheme",
-                "light"
-            );
-        } else {
-            applyTheme("dark");
-
-            localStorage.setItem(
-                "mamamiyaTheme",
-                "dark"
-            );
+        if (!isActive) {
+            item.classList.add("active");
+            icon.textContent = "−";
         }
     });
-}
+});

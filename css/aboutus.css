@@ -156,7 +156,7 @@ a {
         /* Story */
         .story-section {
             background: var(--text);
-            color: var(--background);
+            color: #fff;
             padding: 115px 0;
         }
 
@@ -365,7 +365,7 @@ a {
         .member-contribution {
             margin-bottom: 27px;
             color: var(--muted);
-            font-size: 0.91rem;
+            font-size: 1rem;
         }
 
         .portfolio-link {
