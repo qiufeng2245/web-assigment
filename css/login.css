@@ -245,3 +245,99 @@ body.dark-theme #theme-btn {
     background-color: #d3a052;
     color: #111827;
 }
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .LoginPage {
+        flex: 0.6;
+    }
+
+    .Login {
+        width: 100%;
+        max-width: 520px;
+        padding: 50px 35px;
+        margin-top: -50px;
+    }
+
+    .LoginTitle {
+        font-size: 26px;
+    }
+
+    .input {
+        padding: 18px 12px;
+        font-size: 16px;
+    }
+
+    .loginbutton {
+        padding: 17px;
+    }
+
+    #theme-btn {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .Page {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-size: cover;
+        background-position: center;
+        overflow-y: auto;
+    }
+
+    .LoginPage {
+        flex: none;
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .Login {
+        width: 100%;
+        max-width: 430px;
+        margin: 0 auto;
+        padding: 35px 25px;
+    }
+
+    .LoginTitle {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .input {
+        width: 100%;
+        padding: 16px 12px;
+        font-size: 15px;
+    }
+
+    .loginbutton {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .registerbutton {
+        width: 100%;
+    }
+
+    .showpassword {
+        font-size: 14px;
+    }
+
+    #theme-btn {
+        top: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 17px;
+    }
+}

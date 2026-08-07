@@ -10,24 +10,42 @@
     <header class="header">
         <div class="logo">MamaMiya</div>
 
-        <nav class = "nav">
-    
-        <a href="HomePage.html" class="step-1">&bull;Home</a>
-        <a href="product.html" class="step-2">&bull;Shop Instruments</a>
-        <a href="AboutUs.html" class="step-3">&bull;About Us</a>
-        <a href="login.html" class="step-4">&bull;Log In (&rarr;)</a>
-        <a href="register.html" class="step-5">&bull;Register</a>
-        </nav>
+        <nav class="nav">
+
+            <a href="HomePage.html" class="step-1">&bull;Home</a>
+            <a href="product.html" class="step-2">&bull;Shop Instruments</a>
+            <a href="AboutUs.html" class="step-3">&bull;About Us</a>
+
+            <a
+                href="login.html"
+                class="step-4"
+                id="loginLink"
+            >
+                &bull;Login
+            </a>
+
+            <a
+                href="register.html"
+                class="step-5"
+                id="registerLink"
+            >
+                &bull;Register
+            </a>
 
             <div id="userMenu" hidden>
                 <span class="welcomeText">
-                    Welcome, <strong id="welcomeUsername"></strong>
+                    Welcome,
+                    <strong id="welcomeUsername"></strong>
                 </span>
 
-                <button type="button" id="logoutButton">
+                <button
+                    type="button"
+                    id="logoutButton"
+                >
                     &bull;Logout
                 </button>
             </div>
+
         </nav>
     </header>
 
