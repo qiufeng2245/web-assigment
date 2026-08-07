@@ -8,6 +8,27 @@
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+
+/* Search Input Styling */
+.filter-group .search-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.filter-group .search-input:focus {
+  border-color: #000; /* Adjust to match your theme accent */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
 /* Back Link Styling */
 .back-link {
   font-size: 0.85rem;

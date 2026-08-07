@@ -9,14 +9,14 @@
 <body>
 
   <!-- Minimal Header -->
-<!-- Minimal Header with Back Button -->
-<header>
-  <div style="display: flex; align-items: center; gap: 1.5rem;">
-    <a href="HomePage.html" class="back-link">&larr; Back to Home</a>
-    <div class="brand">MamaMiya</div>
-  </div>
-  <div class="cart-link" id="cartCount">Cart (0)</div>
-</header>
+  <!-- Minimal Header with Back Button -->
+  <header>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <a href="HomePage.html" class="back-link">&larr; Back to Home</a>
+      <div class="brand">MamaMiya</div>
+    </div>
+    <div class="cart-link" id="cartCount">Cart (0)</div>
+  </header>
 
   <!-- Container -->
   <div class="container">
@@ -24,6 +24,18 @@
     <!-- Sidebar -->
     <aside>
       <h3>Refine</h3>
+
+      <!-- ADDED: SEARCH BAR FILTER GROUP -->
+      <div class="filter-group">
+        <label for="searchInput">Search Instruments</label>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="e.g. Guitar, Piano..." 
+          oninput="applyFilters()" 
+          class="search-input"
+        />
+      </div>
 
       <div class="filter-group">
         <label>Category</label>
@@ -110,7 +122,7 @@
     <div class="footer-contact">
             <p>Music Store</p>
 
-            <a href ="meilto:admin@mamamiya.com">admin@mamamiya.com →</a>
+            <a href="mailto:admin@mamamiya.com">admin@mamamiya.com &rarr;</a>
     </div>
 
     <nav class="footer-nav">
@@ -120,12 +132,12 @@
     </nav>
 
         <div class="footer-social">
-            <a href ="https://instagram.com/mamamiya_music" target="_blank">Instagram.</a>
-            <a href ="https://threads.net/@mamamiya_music" target="_blank">Threads.</a>
-            <a href ="https://facebook.com/MamaMiya_Music" target="_blank">Facebook.</a>
+            <a href="https://instagram.com/mamamiya_music" target="_blank">Instagram.</a>
+            <a href="https://threads.net/@mamamiya_music" target="_blank">Threads.</a>
+            <a href="https://facebook.com/MamaMiya_Music" target="_blank">Facebook.</a>
         </div>
     
-        <div class = "footer-bottom">
+        <div class="footer-bottom">
             <p>&copy; 2026 MamaMiya Music. All rights reserved.</p>
         </div>
 

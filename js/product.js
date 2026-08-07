@@ -6,7 +6,7 @@ const products = [
   { id: 5, name: "Professional Drum Kit", category: "Drums kits", price: 850, rating: 4.7, stock: "in", img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=600", desc: "Acoustic 5-piece drum setup built with heavy-duty chrome hardware.", reviews: ["Very punchy low-end."] },
   { id: 6, name: "Brass Trumpet", category: "Trumpets", price: 320, rating: 4.3, stock: "in", img: "https://images.unsplash.com/photo-1573871666457-7c7329118cf9?w=600", desc: "Bb standard polished brass trumpet offering immediate response.", reviews: ["Smooth valves."] },
   { id: 7, name: "Silver Flute", category: "Flute", price: 210, rating: 4.1, stock: "out", img: "https://www.google.com/imgres?q=flute&imgurl=https%3A%2F%2Fcdn.britannica.com%2F65%2F129665-050-73DB433C%2Fflute.jpg&imgrefurl=https%3A%2F%2Fwww.britannica.com%2Fart%2Fflute-musical-instrument&docid=B3FZUqLS_YQAdM&tbnid=j1hase-yWNhjgM&vet=12ahUKEwi9rZCV5vmVAxWrS2cHHW7gIcQQnPAOegQIMxAA..i&w=1600&h=1017&hcb=2&ved=2ahUKEwi9rZCV5vmVAxWrS2cHHW7gIcQQnPAOegQIMxAA", desc: "Nickel silver C flute featuring closed keys for precise intonation.", reviews: ["Great articulation."] },
-  { id: 8, name: "Diatonic Harmonica", category: "Harmonica", price: 45, rating: 4.5, stock: "in", img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH0AlgMBIgACEQEDEQH/xAAcAAEAAgMBAQE────────AAAAABQYDBAcCAQj/xAA8EAABBAEBBQQIAwYHAQAAAAABAAIDBBEFEiExQVEGgZGhBxMUIjJCYXGiscEjM1Ji0fBDU2O... (truncated base64 string)", desc: "Key of C 10-hole diatonic harmonica with brushed steel covers.", reviews: ["Pure tones."] }
+  { id: 8, name: "Diatonic Harmonica", category: "Harmonica", price: 45, rating: 4.5, stock: "in", img: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH0AlgMBIgACEQEDEQH/xAAcAAEAAgMBAQE────────AAAAABQYDBAcCAQj/xAA8EAABBAEBBQQIAwYHAQ", desc: "Key of C 10-hole diatonic harmonica with brushed steel covers.", reviews: ["Pure tones."] }
 ];
 
 let itemsInCart = 0;
@@ -43,23 +43,44 @@ function renderProducts(items) {
 }
 
 function applyFilters() {
-  const category = document.getElementById('categoryFilter').value;
-  const stock = document.getElementById('stockFilter').value;
+  // 1. Get filter element values
+  const searchInput = document.getElementById('searchInput');
+  const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const selectedCategory = document.getElementById('categoryFilter').value;
+  const selectedStock = document.getElementById('stockFilter').value;
   const maxPrice = parseFloat(document.getElementById('priceFilter').value);
-  const sort = document.getElementById('sortFilter').value;
+  const sortBy = document.getElementById('sortFilter').value;
 
-  let filtered = products.filter(p => {
-    const matchCat = category === 'all' || p.category === category;
-    const matchStock = stock === 'all' || p.stock === stock;
-    const matchPrice = p.price <= maxPrice;
-    return matchCat && matchStock && matchPrice;
+  // 2. Filter products array
+  let filteredProducts = products.filter(product => {
+    // Search matching (checks name, category, and desc)
+    const matchesSearch = 
+      product.name.toLowerCase().includes(searchQuery) ||
+      product.category.toLowerCase().includes(searchQuery) ||
+      (product.desc && product.desc.toLowerCase().includes(searchQuery));
+
+    // Category matching
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+
+    // Stock matching
+    const matchesStock = 
+      selectedStock === 'all' || 
+      (selectedStock === 'in' && product.stock === 'in') || 
+      (selectedStock === 'out' && product.stock === 'out');
+
+    // Price matching
+    const matchesPrice = product.price <= maxPrice;
+
+    return matchesSearch && matchesCategory && matchesStock && matchesPrice;
   });
 
-  if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
-  if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
-  if (sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+  // 3. Sort products
+  if (sortBy === 'price-low') filteredProducts.sort((a, b) => a.price - b.price);
+  if (sortBy === 'price-high') filteredProducts.sort((a, b) => b.price - a.price);
+  if (sortBy === 'rating') filteredProducts.sort((a, b) => b.rating - a.rating);
 
-  renderProducts(filtered);
+  // 4. Render the filtered grid
+  renderProducts(filteredProducts);
 }
 
 function updatePrice(v) {
@@ -124,14 +145,12 @@ function applyProductTheme(theme) {
   }
 }
 
-
 // Page loads saved theme
 if (productSavedTheme === "dark") {
   applyProductTheme("dark");
 } else {
   applyProductTheme("light");
 }
-
 
 // Switch theme
 if (productThemeButton) {
