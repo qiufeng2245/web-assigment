@@ -50,7 +50,6 @@ a {
     width: min(1200px, 88%);
     margin: auto;
     padding: 32px 0;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,11 +66,12 @@ a {
     display: flex;
     align-items: center;
     gap: 28px;
+    font-family:"Georgia", serif;
 }
 
 .main-nav a {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
     transition: opacity 0.3s ease;
 }
 
@@ -82,14 +82,12 @@ a {
 .theme-toggle {
     width: 42px;
     height: 42px;
-
     border: 1px solid var(--line);
     border-radius: 50%;
     background: transparent;
     color: var(--text);
     cursor: pointer;
     font-size: 18px;
-
     transition: transform 0.3s ease;
 }
 
@@ -120,7 +118,7 @@ a {
 .contact-section h2 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(62px, 8vw, 108px);
+    font-size: 67px;
     font-weight: 400;
     line-height: 0.95;
 }
@@ -129,7 +127,6 @@ a {
 .hero {
     min-height: 82vh;
     padding: 100px 0 130px;
-
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     gap: 90px;
@@ -139,7 +136,7 @@ a {
 .hero h1 {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(76px, 10vw, 145px);
+    font-size: 80px;
     font-weight: 400;
     line-height: 0.86;
 }
@@ -189,14 +186,14 @@ a {
 }
 
 .profile-card {
-    padding: 24px;
+    padding: 20px;
     background: var(--surface);
     border-radius: 28px;
     box-shadow: var(--shadow);
 }
 
 .profile-image {
-    height: 360px;
+    height: 500px;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -204,6 +201,7 @@ a {
 .profile-image img {
     height: 100%;
     object-fit: cover;
+    opacity: 95%;
 }
 
 .profile-details {
@@ -213,7 +211,8 @@ a {
 .profile-details p {
     margin: 9px 0;
     color: var(--muted);
-    line-height: 1.5;
+    line-height: 1;
+    font-family:"Georgia", serif;
 }
 
 /* Education*/
@@ -233,7 +232,6 @@ a {
     background: var(--surface);
     border-radius: 24px;
     box-shadow: var(--shadow);
-
     transition: transform 0.3s ease;
 }
 
@@ -258,6 +256,7 @@ a {
 .education-card li {
     color: var(--muted);
     line-height: 1.7;
+    font-family:"Georgia", serif;
 }
 
 /* Skills*/
@@ -269,12 +268,11 @@ a {
 }
 
 .skill {
-    margin-bottom: 28px;
+    margin-bottom: 40px;
 }
 
 .skill-header {
     margin-bottom: 10px;
-
     display: flex;
     justify-content: space-between;
 }
@@ -290,7 +288,6 @@ a {
     height: 100%;
     background: var(--accent);
     border-radius: 20px;
-    animation: loadSkill 1.2s ease;
 }
 
 .html-skill { width: 80%; }
@@ -298,12 +295,6 @@ a {
 .js-skill { width: 60%; }
 .java-skill { width: 75%; }
 .python-skill { width: 82%; }
-
-@keyframes loadSkill {
-    from {
-        width: 0;
-    }
-}
 
 .skills-summary {
     padding: 32px;
@@ -322,8 +313,72 @@ a {
 .skills-summary p {
     color: var(--muted);
     line-height: 1.8;
+    font-family:"Georgia", serif;
+}
+/* Soft Skills */
+.soft-skills {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.soft-skills h2{
+    margin-top:20px;
+    margin-bottom:10px;
+    font-family:Georgia, serif;
+    font-size:  65px;
+    font-weight:400;
 }
 
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+}
+
+.skill-card{
+    background:#ffffff;
+    border-radius:28px;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:.35s ease;
+    height:300px;
+}
+
+.skill-card h3{
+    margin:0;
+    font-family:"Georgia", serif;
+    font-size:42px;
+    font-weight:400;
+    line-height:1.1;
+}
+
+.skill-card p{
+    margin:0;
+    font-family:"Georgia", serif;
+    color:#666;
+    font-size:20px;
+    line-height:1.7;
+}
+
+@media(max-width:900px){
+
+.skills-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    }
+
+.skills-grid{
+    grid-template-columns:1fr;
+}
+
+.skill-card{
+    aspect-ratio:auto;
+    min-height:260px;
+}
+
+}
 /* Projects */
 .projects-grid {
     display: grid;
@@ -336,7 +391,6 @@ a {
     border-radius: 26px;
     overflow: hidden;
     box-shadow: var(--shadow);
-
     transition:
         transform 0.35s ease,
         box-shadow 0.35s ease;
@@ -360,7 +414,6 @@ a {
 .project-placeholder {
     padding: 32px;
     color: #ffffff;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -432,7 +485,6 @@ a {
     display: inline-block;
     margin-top: 45px;
     padding-bottom: 6px;
-
     font-family: Georgia, "Times New Roman", serif;
     font-size: 25px;
     text-decoration: none;
@@ -442,7 +494,6 @@ a {
 .site-footer {
     padding: 30px 0;
     border-top: 1px solid var(--line);
-
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -502,7 +553,7 @@ a {
     }
 
     .hero h1 {
-        font-size: 64px;
+        font-size: 40px;
     }
 
     .main-nav {
