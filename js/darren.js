@@ -1,49 +1,51 @@
-// Select the theme toggle button from the HTML
-const themeButton = document.querySelector("#theme-btn");
+/* ==========================================================================
+   DARREN PORTFOLIO - JAVASCRIPT (js/portfolio_darren.js)
+   ========================================================================== */
 
-// Retrieve the saved theme preference from local storage
-const savedTheme = localStorage.getItem("mamamiyaTheme");
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-btn');
+    const themeIcon = themeBtn ? themeBtn.querySelector('.theme-icon') : null;
 
-/**
- * Function to apply the selected theme (dark or light)
- * @param {string} theme - "dark" or "light"
- */
-function applyTheme(theme) {
-    if (theme === "dark") {
-        document.body.classList.add("dark-theme");
+    // 1. Theme Switcher with localStorage
+    const savedTheme = localStorage.getItem('darren_portfolio_theme') || 'dark';
+    applyTheme(savedTheme);
 
-        if (themeButton) {
-            themeButton.textContent = "☀️";
-            themeButton.setAttribute("aria-label", "Switch to light mode");
-        }
-    } else {
-        document.body.classList.remove("dark-theme");
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('darren_portfolio_theme', newTheme);
+        });
+    }
 
-        if (themeButton) {
-            themeButton.textContent = "🌙";
-            themeButton.setAttribute("aria-label", "Switch to dark mode");
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            if (themeIcon) themeIcon.textContent = '☀️';
+            if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to dark mode');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            if (themeIcon) themeIcon.textContent = '🌙';
+            if (themeBtn) themeBtn.setAttribute('aria-label', 'Switch to light mode');
         }
     }
-}
 
-// Apply saved theme on page load (defaults to light mode if nothing is saved)
-if (savedTheme === "dark") {
-    applyTheme("dark");
-} else {
-    applyTheme("light");
-}
+    // 2. Animate Skill Progress Bars when scrolled into view
+    const skillFills = document.querySelectorAll('.progress-fill');
+    const observeSkills = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const targetWidth = fill.style.width;
+                fill.style.width = '0%';
+                setTimeout(() => {
+                    fill.style.width = targetWidth;
+                }, 100);
+                observeSkills.unobserve(fill);
+            }
+        });
+    }, { threshold: 0.5 });
 
-// Event listener for the theme button click
-if (themeButton) {
-    themeButton.addEventListener("click", function () {
-        const isDark = document.body.classList.contains("dark-theme");
-
-        if (isDark) {
-            applyTheme("light");
-            localStorage.setItem("mamamiyaTheme", "light");
-        } else {
-            applyTheme("dark");
-            localStorage.setItem("mamamiyaTheme", "dark");
-        }
-    });
-}
+    skillFills.forEach(fill => observeSkills.observe(fill));
+});
