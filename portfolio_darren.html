@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darren Chia | Portfolio</title>
+
+    <!-- Main Portfolio CSS -->
+    <link rel="stylesheet" href="css/portfolio_darren.css">
+
+    <!-- Print CSS -->
+    <link rel="stylesheet" href="css/darren.css" media="print">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="HomePage.html" class="brand-logo">
+                <span class="logo-accent">MAMA</span>MIYA
+            </a>
+
+            <nav class="nav-links">
+                <a href="HomePage.html">Home</a>
+                <a href="product.html">Shop Instruments</a>
+                <a href="AboutUs.html">About Us</a>
+            </nav>
+
+            <button type="button" id="theme-btn" class="theme-toggle" aria-label="Switch theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-wrapper">
+                <div class="hero-badge">Front-End &amp; UI Developer</div>
+                
+                <h1 class="hero-title">
+                    Darren Chia <br>
+                    <span class="text-gradient">Meng Fong</span>
+                </h1>
+
+                <p class="hero-bio">
+                    Information Technology student specializing in interactive front-end web development, e-commerce catalog design, and dynamic client-side web applications.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work &rarr;</a>
+                    <a href="#about" class="btn btn-outline">About Me</a>
+                </div>
+            </div>
+
+            <div class="hero-image-box">
+                <div class="image-frame">
+                    <img src="imgs/darren.jpg" alt="Photo of Darren Chia Meng Fong" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section-block page-width">
+            <div class="section-header">
+                <span class="section-tag">01 / Profile</span>
+                <h2 class="section-title">Designing Seamless E-Commerce Experiences</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card highlight-card">
+                    <h3>Focus &amp; Philosophy</h3>
+                    <p>
+                        I focus on building clean, modular, and responsive user interfaces. I believe great web products combine seamless visual design with fast, intuitive front-end interactions.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <h3>MAMAMIYA Contribution</h3>
+                    <p>
+                        For our MAMAMIYA Music Store project, I spearheaded the Product Catalog architecture, dynamic price filtering, and the customer star rating and review submission interface.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section-block page-width">
+            <div class="section-header">
+                <span class="section-tag">02 / Background</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+
+            <div class="education-banner">
+                <div class="edu-icon">🎓</div>
+                <div class="edu-details">
+                    <span class="edu-degree">Bachelor of Science (Hons) in Information Technology</span>
+                    <h3 class="edu-specialty">Computer Networking and Security</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section-block page-width">
+            <div class="section-header">
+                <span class="section-tag">03 / Expertise</span>
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+            </div>
+
+            <div class="skills-wrapper">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-label">HTML5 &amp; Semantic Markup</span>
+                        <span class="skill-val">85%</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-label">CSS3 &amp; Flexbox / Grid</span>
+                        <span class="skill-val">80%</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-label">JavaScript (ES6+)</span>
+                        <span class="skill-val">75%</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-label">UI/UX Layout Design</span>
+                        <span class="skill-val">70%</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-label">Git / GitHub Version Control</span>
+                        <span class="skill-val">65%</span>
+                    </div>
+                    <div class="progress-bg"><div class="progress-fill" style="width: 65%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-block page-width">
+            <div class="section-header">
+                <span class="section-tag">04 / Featured Project</span>
+                <h2 class="section-title">MAMAMIYA Music Store</h2>
+                <p class="section-sub">Key front-end components and features developed for the music store platform.</p>
+            </div>
+
+            <div class="portfolio-cards-grid">
+                <div class="feature-card">
+                    <div class="card-num">01</div>
+                    <h3 class="card-title">Instrument Catalog UI</h3>
+                    <p class="card-desc">Designed responsive product grids featuring dynamic category tabs, high-resolution imagery, and structured product specifications.</p>
+                    <div class="tech-tags">
+                        <span>HTML5</span>
+                        <span>CSS Grid</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-num">02</div>
+                    <h3 class="card-title">Dynamic Price Display</h3>
+                    <p class="card-desc">Engineered client-side price computation and currency formatting logic across instrument categories and discount badges.</p>
+                    <div class="tech-tags">
+                        <span>JavaScript</span>
+                        <span>DOM Manipulation</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-num">03</div>
+                    <h3 class="card-title">Interactive Review Form</h3>
+                    <p class="card-desc">Created a star-rating widget and feedback form with interactive hover effects and client-side validation.</p>
+                    <div class="tech-tags">
+                        <span>JavaScript</span>
+                        <span>Form Validation</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-num">04</div>
+                    <h3 class="card-title">Customer Feedback Feed</h3>
+                    <p class="card-desc">Developed a dynamic review rendering component that appends submitted user feedback and star ratings in real-time.</p>
+                    <div class="tech-tags">
+                        <span>JavaScript</span>
+                        <span>CSS Animations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Impact Stats -->
+        <section class="section-block page-width">
+            <div class="stats-banner">
+                <div class="stat-box">
+                    <span class="stat-number">01</span>
+                    <span class="stat-label">Full Product Page Built</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Instruments Cataloged</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">01</span>
+                    <span class="stat-label">Rating &amp; Review System</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Responsive Layout</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download CV Section -->
+        <section class="section-block page-width cv-cta">
+            <div class="cta-card">
+                <h2>Want to know more?</h2>
+                <p>Explore my full skillset, academic performance, and web development experience.</p>
+                <a href="#" class="btn btn-primary btn-large">Download Curriculum Vitae &darr;</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-block">
+        <div class="footer-container">
+            <p>&copy; 2026 Darren Chia Meng Fong. All rights reserved.</p>
+            <a href="AboutUs.html" class="back-link">Back to Our Team &rarr;</a>
+        </div>
+    </footer>
+
+    <!-- Portfolio JS -->
+    <script src="js/portfolio_darren.js"></script>
+</body>
+</html>

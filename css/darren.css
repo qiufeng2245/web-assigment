@@ -1,0 +1,73 @@
+/* ==========================================
+   Print Styles (Tailored for Darren's Portfolio)
+   ========================================== */
+@media print {
+    /* Hide navigation, buttons, contact section, and footer when printing */
+    .main-nav,
+    .theme-toggle,
+    .hero-actions,
+    .primary-btn,
+    .cv-btn,
+    .project-links,
+    .contact-section,
+    .site-footer {
+        display: none !important;
+    }
+
+    /* Set clean black text on white background */
+    body {
+        color: #000000 !important;
+        background: #ffffff !important;
+        font-size: 11pt;
+    }
+
+    .site-header,
+    .hero,
+    .section-block {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 0 !important;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr 200px;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 38pt;
+    }
+
+    /* Convert grids into a clean single-column print layout */
+    .education-grid,
+    .skills-grid,
+    .projects-grid,
+    .skills-layout {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Remove heavy shadows, add clean thin borders, and avoid split pages */
+    .profile-card,
+    .education-card,
+    .skills-summary,
+    .skill-card,
+    .project-card {
+        box-shadow: none !important;
+        border: 1px solid #cccccc !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .section-block {
+        padding: 30px 0 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000 !important;
+    }
+}
