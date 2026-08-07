@@ -1,0 +1,60 @@
+@media print {
+    nav,
+    footer,
+    .cv-btn,
+    .primary-btn,
+    .theme-toggle,
+    .project-links,
+    .contact-section {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+        font-size: 11pt;
+    }
+
+    .site-header,
+    .hero,
+    .section-block {
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 20px 0;
+        grid-template-columns: 1fr 220px;
+    }
+
+    .hero h1 {
+        font-size: 48pt;
+    }
+
+    .section-block {
+        padding: 25px 0;
+        break-inside: avoid;
+    }
+
+    .profile-card,
+    .education-card,
+    .skills-summary,
+    .project-card {
+        box-shadow: none;
+        border: 1px solid #bbb;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        break-inside: avoid;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+}
