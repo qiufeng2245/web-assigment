@@ -10,6 +10,13 @@ const products = [
 ];
 
 let itemsInCart = 0;
+let currentProductId = null;
+
+// Helper: Get user custom reviews from LocalStorage
+function getCustomReviews(id) {
+  const allReviews = JSON.parse(localStorage.getItem('mamamiyaProductReviews')) || {};
+  return allReviews[id] || [];
+}
 
 function renderProducts(items) {
   const grid = document.getElementById('gridContainer');
@@ -53,22 +60,18 @@ function applyFilters() {
 
   // 2. Filter products array
   let filteredProducts = products.filter(product => {
-    // Search matching (checks name, category, and desc)
     const matchesSearch = 
       product.name.toLowerCase().includes(searchQuery) ||
       product.category.toLowerCase().includes(searchQuery) ||
       (product.desc && product.desc.toLowerCase().includes(searchQuery));
 
-    // Category matching
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
 
-    // Stock matching
     const matchesStock = 
       selectedStock === 'all' || 
       (selectedStock === 'in' && product.stock === 'in') || 
       (selectedStock === 'out' && product.stock === 'out');
 
-    // Price matching
     const matchesPrice = product.price <= maxPrice;
 
     return matchesSearch && matchesCategory && matchesStock && matchesPrice;
@@ -87,21 +90,63 @@ function updatePrice(v) {
   document.getElementById('priceLabel').innerText = v;
 }
 
+// Render reviews inside modal (both default strings & user custom reviews)
+function renderModalReviews(product) {
+  const revsContainer = document.getElementById('mReviews');
+  const customReviews = getCustomReviews(product.id);
+
+  let reviewsHTML = "";
+
+  // Render default string reviews from array
+  if (product.reviews && product.reviews.length > 0) {
+    reviewsHTML += product.reviews.map(r => `
+      <div class="review-item">
+        <div class="review-text">— "${r}"</div>
+      </div>
+    `).join('');
+  }
+
+  // Render user-submitted reviews saved in localStorage
+  if (customReviews.length > 0) {
+    reviewsHTML += customReviews.map(r => `
+      <div class="review-item">
+        <div class="review-header">
+          <span class="review-author">${escapeHTML(r.author)}</span>
+          <span class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</span>
+        </div>
+        <div class="review-text">"${escapeHTML(r.comment)}"</div>
+      </div>
+    `).join('');
+  }
+
+  if (!reviewsHTML) {
+    reviewsHTML = `<div style="font-size: 0.8rem; color: var(--text-muted);">No reviews yet. Be the first to leave one!</div>`;
+  }
+
+  revsContainer.innerHTML = reviewsHTML;
+}
+
 function openModal(id) {
+  currentProductId = id;
   const p = products.find(x => x.id === id);
+  
   document.getElementById('mImg').src = p.img;
   document.getElementById('mTitle').innerText = p.name;
   document.getElementById('mPrice').innerText = `$${p.price}`;
   document.getElementById('mDesc').innerText = p.desc;
   
-  const revs = document.getElementById('mReviews');
-  revs.innerHTML = p.reviews.map(r => `<div class="review-item">— "${r}"</div>`).join('');
-  
+  renderModalReviews(p);
+
+  // Reset form fields
+  const form = document.getElementById('reviewForm');
+  if (form) form.reset();
+
   document.getElementById('productModal').style.display = 'flex';
 }
 
 function closeModal() {
   document.getElementById('productModal').style.display = 'none';
+  currentProductId = null;
 }
 
 function addToCart() {
@@ -110,73 +155,80 @@ function addToCart() {
   closeModal();
 }
 
+// Handle Form Submission for new review
+function handleReviewSubmit(event) {
+  event.preventDefault();
+  if (!currentProductId) return;
+
+  const rating = parseInt(document.getElementById('reviewRating').value);
+  const author = document.getElementById('reviewerName').value.trim();
+  const comment = document.getElementById('reviewComment').value.trim();
+
+  if (!author || !comment) return;
+
+  const newReview = { rating, author, comment, timestamp: new Date().toISOString() };
+
+  // Save to LocalStorage
+  const allReviews = JSON.parse(localStorage.getItem('mamamiyaProductReviews')) || {};
+  if (!allReviews[currentProductId]) {
+    allReviews[currentProductId] = [];
+  }
+  allReviews[currentProductId].push(newReview);
+  localStorage.setItem('mamamiyaProductReviews', JSON.stringify(allReviews));
+
+  // Re-render reviews list inside modal dynamically
+  const product = products.find(p => p.id === currentProductId);
+  renderModalReviews(product);
+
+  // Reset form inputs
+  document.getElementById('reviewForm').reset();
+}
+
+// Prevent cross-site scripting
+function escapeHTML(str) {
+  return str.replace(/[&<>'"]/g, 
+    tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+  );
+}
+
+// Initial page render
 renderProducts(products);
 
 // PRODUCT PAGE THEME TOGGLE
-const productThemeButton =
-  document.querySelector("#theme-btn");
-
-const productSavedTheme =
-  localStorage.getItem("mamamiyaTheme");
+const productThemeButton = document.querySelector("#theme-btn");
+const productSavedTheme = localStorage.getItem("mamamiyaTheme");
 
 function applyProductTheme(theme) {
   if (theme === "dark") {
     document.body.classList.add("dark-theme");
-
     if (productThemeButton) {
       productThemeButton.textContent = "☀️";
-
-      productThemeButton.setAttribute(
-        "aria-label",
-        "Switch to light mode"
-      );
+      productThemeButton.setAttribute("aria-label", "Switch to light mode");
     }
   } else {
     document.body.classList.remove("dark-theme");
-
     if (productThemeButton) {
       productThemeButton.textContent = "🌙";
-
-      productThemeButton.setAttribute(
-        "aria-label",
-        "Switch to dark mode"
-      );
+      productThemeButton.setAttribute("aria-label", "Switch to dark mode");
     }
   }
 }
 
-// Page loads saved theme
 if (productSavedTheme === "dark") {
   applyProductTheme("dark");
 } else {
   applyProductTheme("light");
 }
 
-// Switch theme
 if (productThemeButton) {
-  productThemeButton.addEventListener(
-    "click",
-    function () {
-      const isDark =
-        document.body.classList.contains(
-          "dark-theme"
-        );
-
-      if (isDark) {
-        applyProductTheme("light");
-
-        localStorage.setItem(
-          "mamamiyaTheme",
-          "light"
-        );
-      } else {
-        applyProductTheme("dark");
-
-        localStorage.setItem(
-          "mamamiyaTheme",
-          "dark"
-        );
-      }
+  productThemeButton.addEventListener("click", function () {
+    const isDark = document.body.classList.contains("dark-theme");
+    if (isDark) {
+      applyProductTheme("light");
+      localStorage.setItem("mamamiyaTheme", "light");
+    } else {
+      applyProductTheme("dark");
+      localStorage.setItem("mamamiyaTheme", "dark");
     }
-  );
+  });
 }

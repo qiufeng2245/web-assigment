@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- Minimal Header -->
   <!-- Minimal Header with Back Button -->
   <header>
     <div style="display: flex; align-items: center; gap: 1.5rem;">
@@ -25,7 +24,7 @@
     <aside>
       <h3>Refine</h3>
 
-      <!-- ADDED: SEARCH BAR FILTER GROUP -->
+      <!-- SEARCH FILTER -->
       <div class="filter-group">
         <label for="searchInput">Search Instruments</label>
         <input 
@@ -38,7 +37,7 @@
       </div>
 
       <div class="filter-group">
-        <label>Category</label>
+        <label for="categoryFilter">Category</label>
         <select id="categoryFilter" onchange="applyFilters()">
           <option value="all">All Instruments</option>
           <option value="Guitar">Guitar</option>
@@ -53,7 +52,7 @@
       </div>
 
       <div class="filter-group">
-        <label>Availability</label>
+        <label for="stockFilter">Availability</label>
         <select id="stockFilter" onchange="applyFilters()">
           <option value="all">All Items</option>
           <option value="in">In Stock</option>
@@ -86,7 +85,7 @@
     </main>
   </div>
 
-  <!-- Minimal Modal -->
+  <!-- Minimal Modal with Review Section -->
   <div class="modal" id="productModal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -103,54 +102,82 @@
         
         <button class="btn-action" onclick="addToCart()">Add to Bag</button>
 
+        <!-- Reviews Display Section -->
         <div class="reviews-list">
-          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Reviews</div>
+          <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.5px;">Reviews</div>
           <div id="mReviews"></div>
+        </div>
+
+        <!-- Add Review Form Section -->
+        <div class="add-review-section">
+          <h4>Leave a Review</h4>
+          <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+            <div class="form-group">
+              <label for="reviewRating">Rating</label>
+              <select id="reviewRating" required>
+                <option value="5">★ 5 - Excellent</option>
+                <option value="4">★ 4 - Very Good</option>
+                <option value="3">★ 3 - Average</option>
+                <option value="2">★ 2 - Poor</option>
+                <option value="1">★ 1 - Terrible</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reviewerName">Your Name</label>
+              <input type="text" id="reviewerName" placeholder="e.g. Alex" required />
+            </div>
+
+            <div class="form-group">
+              <label for="reviewComment">Your Comment</label>
+              <textarea id="reviewComment" rows="3" placeholder="Share your thoughts on this instrument..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-review">Submit Review</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 
-<footer class="footer">
-
+  <footer class="footer">
     <div class="footer-brand">
-            <span class="brand-letter brand-left">M</span>
-            <span class="brand-letter brand-center">M</span>
-            <span class="brand-letter brand-right">M</span>
+      <span class="brand-letter brand-left">M</span>
+      <span class="brand-letter brand-center">M</span>
+      <span class="brand-letter brand-right">M</span>
     </div>
 
     <div class="footer-contact">
-            <p>Music Store</p>
-
-            <a href="mailto:admin@mamamiya.com">admin@mamamiya.com &rarr;</a>
+      <p>Music Store</p>
+      <a href="mailto:admin@mamamiya.com">admin@mamamiya.com &rarr;</a>
     </div>
 
     <nav class="footer-nav">
-        <a href="HomePage.html" class="footer-step-1">&bull;Home</a>
-        <a href="product.html" class="footer-step-2">&bull;Shop Instruments</a>
-        <a href="AboutUs.html" class="footer-step-3">&bull;About Us</a>
+      <a href="HomePage.html" class="footer-step-1">&bull;Home</a>
+      <a href="product.html" class="footer-step-2">&bull;Shop Instruments</a>
+      <a href="AboutUs.html" class="footer-step-3">&bull;About Us</a>
     </nav>
 
-        <div class="footer-social">
-            <a href="https://instagram.com/mamamiya_music" target="_blank">Instagram.</a>
-            <a href="https://threads.net/@mamamiya_music" target="_blank">Threads.</a>
-            <a href="https://facebook.com/MamaMiya_Music" target="_blank">Facebook.</a>
-        </div>
-    
-        <div class="footer-bottom">
-            <p>&copy; 2026 MamaMiya Music. All rights reserved.</p>
-        </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/mamamiya_music" target="_blank">Instagram.</a>
+      <a href="https://threads.net/@mamamiya_music" target="_blank">Threads.</a>
+      <a href="https://facebook.com/MamaMiya_Music" target="_blank">Facebook.</a>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2026 MamaMiya Music. All rights reserved.</p>
+    </div>
 
-        <p class="footer-credit">
-            Designed for music lovers.
-        </p>
-</footer>
+    <p class="footer-credit">
+      Designed for music lovers.
+    </p>
+  </footer>
 
   <button
     type="button"
     id="theme-btn"
     aria-label="Switch to dark mode"
-    >
+  >
     🌙
   </button>
 

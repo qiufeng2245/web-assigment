@@ -601,3 +601,132 @@ body.dark-theme #theme-btn {
   border-color: #d3a052;
   color: #111827;
 }
+
+/* ==========================================
+   SEARCH BAR & REVIEW SECTION STYLES
+   ========================================== */
+
+/* Search input styling */
+.filter-group .search-input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.filter-group .search-input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Review section container */
+.add-review-section {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-color, #eee);
+}
+
+.add-review-section h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+  color: var(--text-color, #111);
+}
+
+.add-review-section .form-group {
+  margin-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.add-review-section label {
+  font-size: 0.75rem;
+  color: var(--text-muted, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.add-review-section input,
+.add-review-section select,
+.add-review-section textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 4px;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.add-review-section input:focus,
+.add-review-section select:focus,
+.add-review-section textarea:focus {
+  border-color: #000;
+}
+
+.btn-submit-review {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: var(--text-color, #000);
+  color: var(--bg-color, #fff);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-top: 0.3rem;
+}
+
+.btn-submit-review:hover {
+  opacity: 0.85;
+}
+
+/* Individual review cards inside modal */
+.review-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--border-color, #eee);
+  font-size: 0.85rem;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.review-author {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.review-stars {
+  color: #f39c12;
+  font-size: 0.75rem;
+}
+
+.review-text {
+  color: var(--text-muted, #555);
+  font-style: italic;
+}
