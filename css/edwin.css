@@ -1,0 +1,70 @@
+@media print {
+
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .header,
+    .nav,
+    #theme-btn,
+    .edwin-button,
+    .cv-button,
+    .footer {
+        display: none;
+    }
+
+    .edwin,
+    .about-me,
+    .education,
+    .skills,
+    .projects,
+    .contribution,
+    .cv-section {
+        width: 100%;
+        min-height: auto;
+
+        padding: 30px 0;
+
+        break-inside: avoid;
+    }
+
+    .edwin {
+        grid-template-columns:
+            1fr 200px;
+    }
+
+    .edwin-content h1 {
+        font-size: 50px;
+    }
+
+    .edwin-photo img {
+        height: 250px;
+
+        filter: scale(100%);
+    }
+
+    .about-grid,
+    .skills-heading,
+    .contribution-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .project-card {
+        min-height: auto;
+
+        break-inside: avoid;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: none;
+    }
+}
