@@ -139,15 +139,16 @@ a {
     font-size: 80px;
     font-weight: 400;
     line-height: 0.86;
+    animation: heroAppear 1s ease;
 }
 
 .hero-intro {
     max-width: 620px;
     margin: 40px 0 0;
-
     color: var(--muted);
     font-size: 19px;
     line-height: 1.8;
+    animation: heroAppear 1s ease .3s forwards;
 }
 
 .hero-actions {
@@ -162,13 +163,12 @@ a {
     padding: 13px 20px;
     border: 1px solid var(--text);
     border-radius: 30px;
-    text-decoration: none;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
 }
+
 
 .primary-btn {
     background: var(--text);
@@ -213,6 +213,19 @@ a {
     color: var(--muted);
     line-height: 1;
     font-family:"Georgia", serif;
+}
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Education*/
@@ -288,8 +301,17 @@ a {
     height: 100%;
     background: var(--accent);
     border-radius: 20px;
+    /*animation:loadSkill 1.2s ease;*/
+}
+.skill-progress.animate {
+    animation: loadSkill 1.2s ease forwards;
 }
 
+@keyframes loadSkill {
+    from {
+        width: 0;
+    }
+}
 .html-skill { width: 80%; }
 .css-skill { width: 75%; }
 .js-skill { width: 60%; }
@@ -315,6 +337,7 @@ a {
     line-height: 1.8;
     font-family:"Georgia", serif;
 }
+
 /* Soft Skills */
 .soft-skills {
     padding-top: 80px;
@@ -335,7 +358,7 @@ a {
 }
 
 .skill-card{
-    background:#ffffff;
+    background:var(--surface);
     border-radius:28px;
     padding:30px;
     display:flex;
@@ -352,6 +375,7 @@ a {
     font-size:42px;
     font-weight:400;
     line-height:1.1;
+    color:var(--text)
 }
 
 .skill-card p{
@@ -402,11 +426,11 @@ a {
 
 .project-image,
 .project-placeholder {
-    height: 320px;
+    height: 290px;
 }
 
 .project-image img {
-    height: 100%;
+    height: 90%;
     object-fit: cover;
     object-position: top;
 }
@@ -503,13 +527,23 @@ a {
     margin: 0;
 }
 
+.footer-copyright{
+    position:absolute;
+    left:70%;
+    bottom:30px;
+    transform:translateX(-50%);
+    text-align:center;
+}
+.footer-copyright p{
+    margin:0;
+}
 .footer-links {
     display: flex;
     gap: 25px;
 }
 
 .footer-links a {
-    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Responsive design */
