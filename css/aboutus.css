@@ -732,3 +732,10 @@ body.dark-theme #theme-btn {
     border-color: #d3a052;
     color: #111827;
 }
+
+.member-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
