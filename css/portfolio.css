@@ -301,10 +301,7 @@ a {
     height: 100%;
     background: var(--accent);
     border-radius: 20px;
-    /*animation:loadSkill 1.2s ease;*/
-}
-.skill-progress.animate {
-    animation: loadSkill 1.2s ease forwards;
+    animation:loadSkill 1.2s ease;
 }
 
 @keyframes loadSkill {
