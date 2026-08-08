@@ -686,6 +686,24 @@ body {
     opacity: 0.6;
 }
 
+/* viewpoint*/
+@media (max-width: 768px) {
+    .navbar {
+        padding: 25px 20px;
+    }
+    .hero-container {
+        padding: 80px 24px;
+    }
+    .hero-content h1 {
+        font-size: 55px;
+    }
+    .collection {
+        padding: 100px 24px;
+    }
+    .faq-section {
+        padding: 100px 24px;
+    }
+}
 /*dark color*/
 
 body,
