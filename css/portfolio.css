@@ -465,6 +465,7 @@ a {
 .project-content p {
     color: var(--muted);
     line-height: 1.7;
+    font-family:"Georgia", serif;
 }
 
 .contribution {
@@ -482,6 +483,43 @@ a {
     text-decoration: none;
     border-bottom: 1px solid currentColor;
 }
+
+/* Contribution & Reflection */
+.contribution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.contribution-card {
+    padding: 40px;
+    background: var(--surface);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.card-number {
+    display: block;
+    margin-bottom: 50px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.contribution-card h3 {
+    margin: 0 0 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.contribution-card p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    font-family:"Georgia", serif;
+}
+
 
 /* Contact and footer */
 .contact-section {
@@ -666,3 +704,20 @@ a {
     }
 }
 /* almost*/
+
+@media (max-width: 600px) {
+
+    .contribution-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .contribution-card {
+        padding: 28px;
+    }
+
+    .contribution-card h3 {
+        font-size: 30px;
+    }
+}
