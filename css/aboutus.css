@@ -416,8 +416,8 @@ a {
     min-height: 760px;
     padding: 30px;
     margin: 0;
-    background: var(--surface);
-    color: var(--text);
+    background: #f8f8f8;
+    color: #111;
     overflow: hidden;
 }
 
@@ -477,7 +477,20 @@ a {
 .footer-contact a:hover {
     opacity: 0.5;
 }
+.footer-email {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid currentColor;
+}
 
+#copyMessage {
+    min-height: 1.2em;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
 .footer-nav {
     position: absolute;
     z-index: 2;
@@ -529,6 +542,7 @@ a {
     z-index: 2;
     left: 30px;
     bottom: 30px;
+
     display: flex;
     gap: 28px;
 }
@@ -550,6 +564,7 @@ a {
     left: 50%;
     bottom: 50px;
     transform: translateX(-50%);
+
     text-align: center;
 }
 
@@ -565,29 +580,6 @@ a {
     bottom: 30px;
     font-size: 15px;
     opacity: 0.6;
-}
-.footer-email{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    cursor:pointer;
-    border-bottom:1px solid #111;
-    padding-bottom:4px;
-    transition:.3s;
-}
-
-.footer-email:hover{
-    opacity:.7;
-}
-
-.footer-email span{
-    transition:.3s;
-}
-
-#copyMessage{
-    margin-top:10px;
-    font-size:14px;
-    opacity:.6;
 }
 
 /* =========================

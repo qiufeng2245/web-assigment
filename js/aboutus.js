@@ -63,3 +63,41 @@ if (aboutThemeButton) {
         }
     );
 }
+// FOOTER CONTACT EMAIL
+const footerEmail = document.querySelector(".footer-email");
+const emailText = document.querySelector("#emailText");
+const copyMessage = document.querySelector("#copyMessage");
+
+const emailAddress = "admin@mamamiya.com";
+
+if (footerEmail && emailText) {
+    footerEmail.addEventListener("mouseenter", () => {
+        emailText.textContent = emailAddress;
+    });
+
+    footerEmail.addEventListener("mouseleave", () => {
+        emailText.textContent = "Contact Us";
+    });
+
+    footerEmail.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(emailAddress);
+
+            if (copyMessage) {
+                copyMessage.textContent = "Email copied!";
+            }
+
+            setTimeout(() => {
+                if (copyMessage) {
+                    copyMessage.textContent = "";
+                }
+            }, 1500);
+        } catch (error) {
+            console.error("Unable to copy email:", error);
+
+            if (copyMessage) {
+                copyMessage.textContent = "Unable to copy email.";
+            }
+        }
+    });
+}

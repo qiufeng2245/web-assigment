@@ -307,7 +307,7 @@ select, input[type="range"] {
     line-height: 0.85;
 }
 
-/* Large decorative letters */
+/* MMM */
 .brand-left {
     top: 30px;
     left: 30px;
@@ -330,7 +330,6 @@ select, input[type="range"] {
     z-index: 2;
     top: 240px;
     right: 55px;
-
     text-align: right;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 17px;
@@ -351,15 +350,26 @@ select, input[type="range"] {
 .footer-contact a:hover {
     opacity: 0.5;
 }
+.footer-email {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid currentColor;
+}
 
-/* Centre navigation */
+#copyMessage {
+    min-height: 1.2em;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
 .footer-nav {
     position: absolute;
     z-index: 2;
     top: 460px;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -379,7 +389,6 @@ select, input[type="range"] {
     transform: translateX(7px);
 }
 
-/* Stepped navigation */
 .footer-step-1 {
     margin-left: 0;
 }
@@ -400,7 +409,7 @@ select, input[type="range"] {
     margin-left: 0;
 }
 
-/* Bottom-left social links */
+/* social links */
 .footer-social {
     position: absolute;
     z-index: 2;
@@ -421,7 +430,7 @@ select, input[type="range"] {
     opacity: 0.5;
 }
 
-/* Bottom-centre copyright */
+/* copyright */
 .footer-bottom {
     position: absolute;
     z-index: 2;
@@ -442,7 +451,6 @@ select, input[type="range"] {
     z-index: 2;
     right: 30px;
     bottom: 30px;
-
     font-size: 15px;
     opacity: 0.6;
 }
