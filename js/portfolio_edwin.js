@@ -77,3 +77,12 @@ if (themeButton) {
         }
     );
 }
+
+const downloadCvBtn = document.querySelector("#downloadCV");
+
+if (downloadCV) {
+    downloadCV.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.print();
+    });
+}
